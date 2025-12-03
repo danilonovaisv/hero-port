@@ -16,9 +16,9 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Model(props: JSX.IntrinsicElements["group"]) {
+export default function TorusDan(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
-    "/./media/torus_dan.glb/torus_dan.glb"
+    "/media/torus_dan.glb"
   ) as GLTFResult;
   return (
     <group {...props} dispose={null}>
@@ -36,4 +36,4 @@ export function Model(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload("/./media/torus_dan.glb/torus_dan.glb");
+useGLTF.preload("/media/torus_dan.glb");
