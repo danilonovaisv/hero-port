@@ -18,14 +18,14 @@ export default function HeroGlassCanvas({ scrollYProgress }: HeroGlassCanvasProp
 
   return (
     <motion.div
-      className="absolute right-0 top-0 w-full h-full md:w-3/5"
+      className="absolute left-1/2 top-1/4 w-[500px] h-[500px] md:w-[700px] md:h-[700px] -translate-x-1/2 pointer-events-auto"
       style={{
         scale: videoScale,
         x: videoX,
         y: videoY,
         borderRadius: videoRadius,
         opacity: videoOpacity,
-        transformOrigin: 'bottom right',
+        transformOrigin: 'center center',
       }}
     >
       <Canvas
