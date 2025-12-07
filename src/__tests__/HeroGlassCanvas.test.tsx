@@ -10,7 +10,7 @@ vi.mock('framer-motion', async () => {
     ...actual,
     motion: {
       div: ({ children, style }: { children: React.ReactNode; style: React.CSSProperties }) => (
-        <div style={style}>{children}</div>
+        <div style={style} data-testid="hero-glass-canvas">{children}</div>
       ),
     },
     useTransform: vi.fn((value, inputRange, outputRange) => {
@@ -31,7 +31,7 @@ vi.mock('@react-three/drei', () => ({
 }));
 
 // Mock the TorusDan component
-vi.mock('../components/Torus_dan', () => ({
+vi.mock('../components/TorusDan', () => ({
   __esModule: true,
   default: () => <div data-testid="torus-dan" />,
 }));
@@ -50,7 +50,7 @@ describe('HeroGlassCanvas', () => {
     
     render(<HeroGlassCanvas scrollYProgress={scrollYProgress} />);
     
-    const container = screen.getByTestId('canvas').parentElement;
+    const container = screen.getByTestId('hero-glass-canvas');
     expect(container).toHaveStyle('scale: 0.25->1');
     expect(container).toHaveStyle('x: 40->0');
     expect(container).toHaveStyle('y: 40->0');
